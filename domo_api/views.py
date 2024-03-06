@@ -33,8 +33,6 @@ class Locations_method(APIView):
         location.delete()
         return Response(status=status.HTTP_200_OK)
     
-
-
 class Devices_method(APIView):
     def post(self, request):
         name_devices = request.data["name_device"]     
@@ -50,7 +48,7 @@ class Devices_method(APIView):
         return Response(status=status.HTTP_200_OK)
 
     def get(self, request, codigo):
-        devices = Devices.objects.filter(user_id = codigo)
+        devices = Devices.objects.filter(location_id = codigo)
         content = {}
         devices_list = DeviceSerializers(devices,many=True).data
         content["devices"] = devices_list
@@ -64,9 +62,9 @@ class Devices_method(APIView):
 class Dots_method(APIView):
     def post(self, request):
         value = request.data["value"]     
-        dateTime = request.data["dateTime"] 
+        #dateTime = request.data["dateTime"] 
         device = request.data["device_id"]
-        devices = Devices.objects.create(value=value,dateTime=dateTime, device_id=device)
+        dots = Dots.objects.create(value=value, device_id=device)
         return Response(status=status.HTTP_200_OK)
     
     def put(self, request, codigo):
@@ -76,7 +74,7 @@ class Dots_method(APIView):
         return Response(status=status.HTTP_200_OK)
 
     def get(self, request, codigo):
-        dots = Dots.objects.filter(user_id = codigo)
+        dots = Dots.objects.filter(device_id = codigo)
         content = {}
         dots_list = DotSerializers(dots,many=True).data
         content["dots"] = dots_list
