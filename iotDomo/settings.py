@@ -85,13 +85,24 @@ WSGI_APPLICATION = 'iotDomo.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'domo_db',
+#         "USER": "eia_2023",
+#         "PASSWORD": "ciVeqa1242",
+#         "HOST": "db-instance.c9a24gmamtyr.us-east-2.rds.amazonaws.com",
+#         "PORT": "3306"
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'domo_db',
-        "USER": "eia_2023",
+        "USER": "admin",
         "PASSWORD": "ciVeqa1242",
-        "HOST": "db-instance.c9a24gmamtyr.us-east-2.rds.amazonaws.com",
+        "HOST": "db-instance.cn4ymwugw6lg.us-east-1.rds.amazonaws.com",
         "PORT": "3306"
     }
 }
